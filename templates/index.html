@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GST Data Comparison</title>
+    <link rel="icon" type="image/x-icon" href="/ELEC.png">
+
+    <style>
+        body {
+            background-color: teal;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: teal;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #007F7F;
+        }
+
+        /* Styling for the download link */
+        a.download-link {
+            text-decoration: none;
+            color: teal;
+            margin-top: 15px;
+            display: block;
+        }
+
+        a.download-link:hover {
+            color: #005F5F;
+        }
+        /* Styling for the loading GIF */
+           .loading {
+               display: none;
+               text-align: center;
+           }
+       </style>
+       <script>
+           function compareFiles() {
+               // Show the loading GIF
+               document.getElementById("loading").style.display = "block";
+
+               // Simulate a process completion after 3 seconds (you can replace this with your actual process)
+               setTimeout(function () {
+                   // Hide the loading GIF
+                   document.getElementById("loading").style.display = "none";
+               }, 3000);
+           }
+       </script>
+</head>
+<body>
+    <h1>GST Data Comparison Portal</h1>
+
+  <form action="/compare" method="POST" enctype="multipart/form-data">
+      <label for="gst_file">Upload GST Portal File:</label>
+      <input type="file" name="gst_file" required>
+      <br>
+      <label for="erp_file">Upload ERP Portal File:</label>
+      <input type="file" name="erp_file" required>
+      <br>
+      <input type="submit" value="Compare Files">
+
+        <!-- Styling applied to the download link -->
+
+        <p><a class="download-link" href="/download_template">Download Template</a></p>
+
+    </form>
+</body>
+</html>

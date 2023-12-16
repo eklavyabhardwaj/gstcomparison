@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <link rel="icon" type="image/x-icon" href="/ELEC.png">
+    <style>
+        body {
+            background-color: teal;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        p {
+            color: white;
+            text-align: center;
+        }
+
+        #visit-count {
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+
+    <script>
+        // Function to update the visit count
+        function updateVisitCount() {
+            fetch('/get_visit_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('visit-count').textContent = data.visit_count;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Update the visit count initially and every 5 seconds
+        updateVisitCount();
+        setInterval(updateVisitCount, 5000); // Update every 5 seconds
+    </script>
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <p>Total Visits: <span id="visit-count"></span></p>
+</body>
+</html>
