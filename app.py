@@ -246,4 +246,4 @@ def compare():
     return send_file(comparison_filename, as_attachment=True, download_name= download_name)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=8000)
